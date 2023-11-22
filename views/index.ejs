@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS</title>
+    <link rel="stylesheet" href="css/result.css">
+    <!-- Using EJS in a Script Tag -->
+    <script src="ejs.js"></script>
+</head>
+<body>
+    <div class="boxx">
+        
+        <% const city = myWeather.name %>
+
+        <% const country = myWeather.sys.country %>
+
+        <% const temp = myWeather.main.temp %>
+
+        <% const condition = myWeather.weather[0].main %>
+
+        <% const high = myWeather.main.temp_max %>
+
+        <% const low = myWeather.main.temp_min %>
+
+        <% let date = (new Date()).toString().slice(0, 24); %>
+
+        <div class="place">
+            <%= city %>, <%= country %>
+        </div>
+    
+        <div class="date">
+            <p id="currentDate"><%= date %></p>
+        </div>
+    
+        <div class="temp">
+            <%= temp %> <span>°c</span>
+        </div>
+    
+        <div class="condition">
+            <h3><em><%= condition %></em></h3>
+        </div>
+    
+        <div class="highLow">
+            <%= high %><span>°c</span> / <%= low %><span>°c</span>
+        </div>
+        
+        <div class="btnContainer">
+            <form action="/result" method="post">
+                <button class="submitBtn" type="submit">Back</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+    // EJS code
+</script>
